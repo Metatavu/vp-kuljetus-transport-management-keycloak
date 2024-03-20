@@ -33,6 +33,10 @@ jobs:
         uses: docker/metadata-action@v5
         with:
           images: ${{ env.REGISTRY }}/${{ steps.image_name.outputs.IMAGE_NAME }}
+      - name: Download driver card authencicator
+        run: |
+          mkdir -p providers
+          curl -L "https://${{ secrets.GITHUB_TOKEN }}@maven.pkg.github.com/Metatavu/vp-kuljetus-transport-management-driver-card-keycloak-auth-provider/fi/metatavu/vp/keycloak/vp-kuljetus-transport-management-driver-card-keycloak-auth-provider/1.0.0/vp-kuljetus-transport-management-driver-card-keycloak-auth-provider-1.0.0.jar" -o providers/driver-card-keycloak-auth-provider-1.0.0.jar
       - name: Build and push Docker image
         uses: docker/build-push-action@v5
         with:
