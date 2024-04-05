@@ -37,8 +37,8 @@ jobs:
       - name: Download driver card authencicator
         run: |
           mkdir -p providers &&
-          curl -L "https://${{ secrets.PACKAGES_PAT }}@maven.pkg.github.com/Metatavu/vp-kuljetus-transport-management-driver-card-keycloak-auth-provider/fi/metatavu/vp/keycloak/vp-kuljetus-transport-management-driver-card-keycloak-auth-provider/1.0.2/vp-kuljetus-transport-management-driver-card-keycloak-auth-provider-1.0.2.jar" -o providers/driver-card-keycloak-auth-provider-1.0.2.jar &&
-          cat providers/driver-card-keycloak-auth-provider-1.0.2.jar
+          curl -L "https://${{ secrets.PACKAGES_PAT }}@maven.pkg.github.com/Metatavu/vp-kuljetus-transport-management-driver-card-keycloak-auth-provider/fi/metatavu/vp/keycloak/vp-kuljetus-transport-management-driver-card-keycloak-auth-provider/1.0.3/vp-kuljetus-transport-management-driver-card-keycloak-auth-provider-1.0.3.jar" -o providers/driver-card-keycloak-auth-provider-1.0.3.jar &&
+          cat providers/driver-card-keycloak-auth-provider-1.0.3.jar
       - name: Build and push Docker image
         uses: docker/build-push-action@v5
         with:
