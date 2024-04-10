@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - develop
+      - feature-2-keycloak-automatic-deployment
 
 env:
   REGISTRY: ghcr.io
