@@ -1,9 +1,10 @@
-name: Publish master docker image
+name: Publish develop docker image
 
 on:
   push:
     branches:
-      - master
+      - develop
+      - feature-2-keycloak-automatic-deployment
 
 env:
   REGISTRY: ghcr.io
@@ -11,7 +12,7 @@ env:
 
 jobs:
   build-and-push-image:
-    environment: master
+    environment: develop
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -46,3 +47,9 @@ jobs:
           file: Dockerfile
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
+      - name: Install staging charts
+        uses: peter-evans/repository-dispatch@v3
+        with:
+          repository: Metatavu/vp-kuljetus-transport-management-charts
+          event-type: update-staging
+          token: ${{ secrets.CHARTS_UPDATE_PAT }}
