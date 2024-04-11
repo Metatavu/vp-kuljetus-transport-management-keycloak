@@ -38,7 +38,6 @@ jobs:
         with:
           images: ${{ env.REGISTRY }}/${{ steps.image_name.outputs.IMAGE_NAME }}
       - name: Resolve driver card authencicator version
-        id: snapshot
         run: |
           echo "CARD_AUTH_VERSION=$(curl -sS -H "Accept: application/vnd.github+json" -H "Authorization: Bearer ${{ secrets.PACKAGES_PAT }}" -H "X-GitHub-Api-Version: 2022-11-28" https://api.github.com/orgs/Metatavu/packages/maven/fi.metatavu.vp.keycloak.vp-kuljetus-transport-management-driver-card-keycloak-auth-provider/versions|jq '.[].name'|grep develop|head -n 1|sed 's/"//g')" >> $GITHUB_ENV
       - name: Download driver card authencicator
