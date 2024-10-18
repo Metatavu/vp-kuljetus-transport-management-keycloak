@@ -1,5 +1,6 @@
 FROM quay.io/keycloak/keycloak:24.0.2 as builder
 WORKDIR /opt/keycloak
+ADD theme /opt/keycloak/themes/vp
 ADD providers /opt/keycloak/providers
 ENV KC_DB=mysql
 ENV KC_HEALTH_ENABLED=true
