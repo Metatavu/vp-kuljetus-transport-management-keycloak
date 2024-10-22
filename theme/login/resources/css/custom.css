@@ -83,3 +83,9 @@
   color: #c9190b;
   font-size: 14px;
 }
+
+#input-error-client-app-not-verified {
+  color: #c9190b;
+  text-align: center;
+  font-size: 16px;
+}
