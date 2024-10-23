@@ -1,0 +1,91 @@
+.login-pf body {
+  background: #fff;
+}
+
+#kc-header #kc-header-wrapper {
+  display: none;
+}
+
+#kc-header {
+  margin-top: 16px;
+  height: 80px;
+  background: url("../img/vp-kuljetus-logo.jpeg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+.card-pf {
+  border-color: #1B4649;
+}
+
+#kc-form {
+  margin-top: 32px;
+}
+
+#kc-form-buttons {
+  margin-top: 16px;
+}
+
+.vp-pin-code-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.vp-pin-code-container label {
+  color: #1B4649;
+  font-size: 14px;
+}
+
+.pf-v5-c-title.pf-m-3xl {
+  font-size: 20px;
+  text-align: center;
+}
+
+.pf-v5-c-login__main {
+  box-shadow: none;
+}
+
+.pf-v5-c-login__main-header {
+  padding-block-start: 16px;
+}
+
+#kc-form-login #kc-form-buttons input[type="submit"] {
+  background-color: #1B4649;
+  color: #fff;
+  border: 1px solid #1B4649;
+  border-radius: 4px;
+  padding: 8px 16px;
+  font-size: 16px;
+  cursor: pointer;
+  width: 100%
+}
+
+#kc-form-login input[type="text"], #kc-form-login input[type="password"] {
+  background-color: rgba(0,0,0,0.06);
+  border: none;
+  border-radius: 4px;
+  width: 100%;
+  height: 42px;
+}
+
+#pin-code-input {
+  text-align: center;
+  letter-spacing: 8px;
+  font-size: 34px;
+}
+
+#kc-form-login input[type="password"]:active {
+  border: 1px solid #1B4648;
+}
+
+#input-error-pin-code {
+  color: #c9190b;
+  font-size: 14px;
+}
+
+#input-error-client-app-not-verified {
+  color: #c9190b;
+  text-align: center;
+  font-size: 16px;
+}
