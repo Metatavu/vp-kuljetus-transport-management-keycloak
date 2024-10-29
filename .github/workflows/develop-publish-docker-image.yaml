@@ -39,11 +39,11 @@ jobs:
           images: ${{ env.REGISTRY }}/${{ steps.image_name.outputs.IMAGE_NAME }}
       - name: Resolve driver card authencicator version
         run: |
-          echo "CARD_AUTH_VERSION=$(curl -sS -H "Accept: application/vnd.github+json" -H "Authorization: Bearer ${{ secrets.PACKAGES_PAT }}" -H "X-GitHub-Api-Version: 2022-11-28" https://api.github.com/orgs/Metatavu/packages/maven/fi.metatavu.vp.keycloak.vp-kuljetus-transport-management-driver-card-keycloak-auth-provider/versions|jq '.[].name'|grep develop|head -n 1|sed 's/"//g')" >> $GITHUB_ENV
+          echo "AUTH_PROVIDERS_VERSION=$(curl -sS -H "Accept: application/vnd.github+json" -H "Authorization: Bearer ${{ secrets.PACKAGES_PAT }}" -H "X-GitHub-Api-Version: 2022-11-28" https://api.github.com/orgs/Metatavu/packages/maven/fi.metatavu.vp.keycloak.vp-tms-keycloak-auth-providers/versions|jq '.[].name'|grep develop|head -n 1|sed 's/"//g')" >> $GITHUB_ENV
       - name: Download driver card authencicator
         run: |
           mkdir -p providers &&
-          curl -L "https://${{ secrets.PACKAGES_PAT }}@maven.pkg.github.com/Metatavu/vp-kuljetus-transport-management-driver-card-keycloak-auth-provider/fi/metatavu/vp/keycloak/vp-kuljetus-transport-management-driver-card-keycloak-auth-provider/${{ env.CARD_AUTH_VERSION }}/vp-kuljetus-transport-management-driver-card-keycloak-auth-provider-${{ env.CARD_AUTH_VERSION }}.jar" -o providers/driver-card-keycloak-auth-provider.jar
+          curl -L "https://${{ secrets.PACKAGES_PAT }}@maven.pkg.github.com/Metatavu/vp-tms-keycloak-auth-providers/fi/metatavu/vp/keycloak/vp-tms-keycloak-auth-providers/${{ env.AUTH_PROVIDERS_VERSION }}/vp-tms-keycloak-auth-providers-${{ env.AUTH_PROVIDERS_VERSION }}.jar" -o providers/vp-tms-keycloak-auth-providers.jar
       - name: Build and push Docker image
         uses: docker/build-push-action@v5
         with:
